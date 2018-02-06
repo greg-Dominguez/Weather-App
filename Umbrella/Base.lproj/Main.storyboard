@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Medium</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Home View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="HomeViewController" customModule="Umbrella" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9kh-Uy-ptL" customClass="CurrentWeatherView" customModule="Umbrella" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
+                                <color key="backgroundColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="mYX-mT-QIV">
+                                <rect key="frame" x="8" y="201" width="359" height="466"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.93333333333333335" green="0.93333333333333335" blue="0.93333333333333335" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="mYX-mT-QIV" secondAttribute="bottom" id="0tJ-pA-ePt"/>
+                            <constraint firstItem="9kh-Uy-ptL" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.3" id="Cap-jZ-fql"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="top" secondItem="9kh-Uy-ptL" secondAttribute="top" constant="20" id="Qhm-Jx-sef"/>
+                            <constraint firstItem="9kh-Uy-ptL" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="dCe-oe-eoq"/>
+                            <constraint firstItem="mYX-mT-QIV" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="gdt-Q8-6kf"/>
+                            <constraint firstItem="mYX-mT-QIV" firstAttribute="top" secondItem="9kh-Uy-ptL" secondAttribute="bottom" constant="1" id="q07-FB-CDW"/>
+                            <constraint firstItem="9kh-Uy-ptL" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="uIe-1S-Gdn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="mYX-mT-QIV" secondAttribute="trailing" constant="8" id="y80-Da-wOQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="currentWeatherView" destination="9kh-Uy-ptL" id="TA3-VV-Aa4"/>
+                        <outlet property="forecastTableView" destination="mYX-mT-QIV" id="lCq-z6-bYe"/>
+                        <segue destination="0c5-Pe-oH7" kind="presentation" identifier="ZipcodeSegue" modalPresentationStyle="overFullScreen" id="K0V-9D-fZu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Zipcode View Controller-->
+        <scene sceneID="hLB-gw-OLl">
+            <objects>
+                <viewController id="0c5-Pe-oH7" customClass="ZipcodeViewController" customModule="Umbrella" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="62Z-Cd-Lk8">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QBf-EQ-QI6">
+                                <rect key="frame" x="132.5" y="308.5" width="110" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="110" id="gbA-41-Jcv"/>
+                                </constraints>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <connections>
+                                    <action selector="textFieldEdited" destination="0c5-Pe-oH7" eventType="editingChanged" id="Ddq-iY-Xfk"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Your Zipcode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wAG-9i-Qrx">
+                                <rect key="frame" x="16" y="223.5" width="343" height="35"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lyK-eP-MjM">
+                                <rect key="frame" x="157.5" y="358.5" width="60" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="GIG-pO-ArO"/>
+                                    <constraint firstAttribute="height" constant="30" id="PPI-Fo-WHh"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="16"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" red="1" green="0.59607843140000005" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitButtonPressed" destination="0c5-Pe-oH7" eventType="touchUpInside" id="kcS-5L-ecY"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Zipcode Entered" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vIj-c2-ExV">
+                                <rect key="frame" x="16" y="433.5" width="343" height="23.5"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                <color key="textColor" red="0.96078431369999995" green="0.18823529410000001" blue="0.098039215690000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lyK-eP-MjM" firstAttribute="top" secondItem="QBf-EQ-QI6" secondAttribute="bottom" constant="20" id="4cy-lx-dEc"/>
+                            <constraint firstItem="DhX-SU-jjH" firstAttribute="trailing" secondItem="vIj-c2-ExV" secondAttribute="trailing" constant="16" id="6hM-M4-B9c"/>
+                            <constraint firstItem="lyK-eP-MjM" firstAttribute="centerX" secondItem="DhX-SU-jjH" secondAttribute="centerX" id="8Is-l2-t4J"/>
+                            <constraint firstItem="QBf-EQ-QI6" firstAttribute="centerY" secondItem="DhX-SU-jjH" secondAttribute="centerY" constant="-20" id="BaA-vr-YLG"/>
+                            <constraint firstItem="vIj-c2-ExV" firstAttribute="top" secondItem="lyK-eP-MjM" secondAttribute="bottom" constant="45" id="C2G-CE-zth"/>
+                            <constraint firstItem="QBf-EQ-QI6" firstAttribute="top" secondItem="wAG-9i-Qrx" secondAttribute="bottom" constant="50" id="WES-mj-LEP"/>
+                            <constraint firstItem="wAG-9i-Qrx" firstAttribute="leading" secondItem="DhX-SU-jjH" secondAttribute="leading" constant="16" id="n67-hK-Yti"/>
+                            <constraint firstItem="QBf-EQ-QI6" firstAttribute="centerX" secondItem="DhX-SU-jjH" secondAttribute="centerX" id="rzF-8v-p52"/>
+                            <constraint firstItem="vIj-c2-ExV" firstAttribute="leading" secondItem="DhX-SU-jjH" secondAttribute="leading" constant="16" id="uGd-z7-NJ9"/>
+                            <constraint firstItem="DhX-SU-jjH" firstAttribute="trailing" secondItem="wAG-9i-Qrx" secondAttribute="trailing" constant="16" id="y1e-Zp-iOE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="DhX-SU-jjH"/>
+                    </view>
+                    <connections>
+                        <outlet property="errorLabel" destination="vIj-c2-ExV" id="qlk-gQ-G18"/>
+                        <outlet property="textField" destination="QBf-EQ-QI6" id="JE0-Vg-zU3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vhs-pn-48N" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="957.60000000000002" y="134.48275862068968"/>
+        </scene>
+    </scenes>
+</document>
